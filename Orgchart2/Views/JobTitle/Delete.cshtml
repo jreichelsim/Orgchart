@@ -1,0 +1,12 @@
+﻿@model Orgchart2.Models.JobTitle
+
+<p>Are you sure you want to delete job title "@Html.Encode(Model.Description)"?</p>
+
+<p>
+@using (Html.BeginForm("Delete", "JobTitle", FormMethod.Post))
+{
+    @Html.HiddenFor(_ => _.Id)
+    <input type="submit" name="Confirm" value="Yes"> @:|
+    @Html.ActionLink("Cancel", "Index")
+}
+</p>

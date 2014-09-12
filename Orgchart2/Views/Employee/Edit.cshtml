@@ -1,0 +1,41 @@
+﻿@model Orgchart2.ViewModels.EmployeeViewModel
+
+@using (Html.BeginForm("Edit", "Employee", FormMethod.Post))
+{
+    @Html.HiddenFor(_ => _.Employee.Id)
+    <p>
+        @Html.LabelFor(_ => _.Employee.FirstName)
+        @Html.TextBoxFor(_ => _.Employee.FirstName)
+    </p>
+    <p>
+        @Html.LabelFor(_ => _.Employee.LastName)
+        @Html.TextBoxFor(_ => _.Employee.LastName)
+    </p>
+    <p>
+        @Html.LabelFor(_ => _.Employee.Email)
+        @Html.TextBoxFor(_ => _.Employee.Email)
+    </p>
+    <p>
+        @Html.LabelFor(_ => _.Employee.SkypeName)
+        @Html.TextBoxFor(_ => _.Employee.SkypeName)
+    </p>
+    <p>
+        @Html.LabelFor(_ => _.Employee.JobTitle)
+        @Html.DropDownListFor(_ => _.Employee.JobTitleId, Model.JobTitles, "")
+    </p>
+    <p>
+        @Html.LabelFor(_ => _.Employee.IsManager)
+        @Html.CheckBoxFor(_ => _.Employee.IsManager)
+    </p>
+    <p>
+        @Html.LabelFor(_ => _.Employee.Manager)
+        @Html.DropDownListFor(_ => _.Employee.ManagerId, Model.Managers, "")
+    </p>
+    <p>
+        @Html.LabelFor(_ => _.Employee.Department)
+        @Html.DropDownListFor(_ => _.Employee.DepartmentId, Model.Departments, "")
+    </p>
+    <p>
+        <input type="submit"/>
+    </p>
+}

@@ -1,0 +1,30 @@
+﻿@using System.Web.Mvc.Html
+@model Orgchart2.ViewModels.EmployeeViewModel
+
+@using (Html.BeginForm("Add", "Employee", FormMethod.Post))
+{
+    @Html.LabelFor(_ => _.Employee.FirstName)
+    @Html.TextBoxFor(_ => _.Employee.FirstName)
+    <br/>
+    @Html.LabelFor(_ => _.Employee.LastName)
+    @Html.TextBoxFor(_ => _.Employee.LastName)
+    <br/>
+    @Html.LabelFor(_ => _.Employee.Email)
+    @Html.TextBoxFor(_ => _.Employee.Email)
+    <br/>
+    @Html.LabelFor(_ => _.Employee.SkypeName)
+    @Html.TextBoxFor(_ => _.Employee.SkypeName)
+    <br/>
+    @Html.LabelFor(_ => _.Employee.JobTitle)
+    @Html.DropDownListFor(_ => _.Employee.JobTitleId, Model.JobTitles, "")
+    <br/>
+    @Html.LabelFor(_ => _.Employee.IsManager)
+    @Html.CheckBoxFor(_ => _.Employee.IsManager)
+    <br/>
+    @Html.LabelFor(_ => _.Employee.Manager)
+    @Html.DropDownListFor(_ => _.Employee.ManagerId, Model.Managers, "")
+    <br/>
+    @Html.LabelFor(_ => _.Employee.Department)
+    @Html.DropDownListFor(_ => _.Employee.DepartmentId, Model.Departments, "")
+<input type="submit"/>
+}

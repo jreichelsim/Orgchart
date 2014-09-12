@@ -1,0 +1,7 @@
+﻿@model Orgchart2.Models.JobTitle
+
+@using (Html.BeginForm("Add", "JobTitle", FormMethod.Post))
+{
+    @Html.TextBoxFor(_ => _.Description)
+    <input type="submit" />
+}

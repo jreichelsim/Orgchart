@@ -1,0 +1,23 @@
+﻿@model List<Orgchart2.Models.JobTitle>
+
+@Html.ActionLink("Add new", "Add")
+
+<table>
+    <thead>
+        <tr>
+            <th colspan="3">Job Titles</th>
+        </tr>
+    </thead>
+    <tbody>
+@{
+    foreach (var title in Model)
+    {
+        <tr>
+            <td>@title.Description</td>
+            <td>@Html.ActionLink("Edit", "Edit", new { id = title.Id })</td>
+            <td>@Html.ActionLink("Delete", "Delete", new { id = title.Id })</td>
+        </tr>
+    }
+}
+    </tbody>
+</table>

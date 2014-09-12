@@ -1,0 +1,23 @@
+﻿@model Orgchart2.ViewModels.DepartmentViewModel
+
+@using (Html.BeginForm("Edit", "Department", FormMethod.Post))
+{
+    <p>
+        @Html.LabelFor(_ => _.Department.Name)
+        @Html.TextBoxFor(_ => _.Department.Name)
+    </p>
+    <p>
+        @Html.LabelFor(_ => _.Department.Manager)
+        @Html.DropDownListFor(_ => _.Department.ManagerId, Model.Managers, "")
+    </p>
+    <p>
+        @Html.LabelFor(_ => _.Department.ParentDepartment)
+        @Html.DropDownListFor(_ => _.Department.ParentDepartmentId, Model.Departments, "")
+    </p>
+    <p>
+         @Html.HiddenFor(_ => _.Department.Id)
+        <input type="submit">
+        |
+        @Html.ActionLink("Cancel", "Index")
+    </p>
+}

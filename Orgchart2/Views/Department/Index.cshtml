@@ -1,0 +1,33 @@
+﻿@model List<Orgchart2.Models.Department>
+
+@Html.ActionLink("Add new", "Add")
+
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Manager</th>
+        <th>Parent Department</th>
+    </tr>
+    @foreach (var department in Model)
+    {
+        <tr>
+            <td>
+                @department.Name
+            </td>
+            <td>
+                @if (department.Manager != null)
+                {
+                    @department.Manager.LastName
+                }
+            </td>
+            <td>
+                @if (department.ParentDepartment != null)
+                {
+                    @department.ParentDepartment.Name
+                }
+            </td>
+            <td>@Html.ActionLink("Edit", "Edit", new { id = department.Id })</td>
+            <td>@Html.ActionLink("Delete", "Delete", new { id = department.Id })</td>
+        </tr>
+    }
+</table>

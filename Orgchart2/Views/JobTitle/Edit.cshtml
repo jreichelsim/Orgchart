@@ -1,0 +1,13 @@
+﻿@model Orgchart2.Models.JobTitle
+
+@using (Html.BeginForm("Edit", "JobTitle", FormMethod.Post))
+{
+    <p>
+        @Html.HiddenFor(_ => _.Id)
+        @Html.TextBoxFor(_ => _.Description)
+    </p>
+    <p>
+        <input type="submit"> |
+        @Html.ActionLink("Cancel", "Index")
+    </p>
+}
